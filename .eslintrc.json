@@ -17,7 +17,7 @@
     "sourceType": "module"
   },
   "ignorePatterns": ["dist", ".eslintrc.json"],
-  "plugins": ["react-refresh", "react", "react-rules"],
+  "plugins": ["react-refresh", "react"],
   "rules": {
     "react-refresh/only-export-components": [
       "warn",
