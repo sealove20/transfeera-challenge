@@ -24,6 +24,8 @@ const base = {
   red300: '#FF003A',
   red400: '#FF3569',
   red500: '#FF7D9C',
+  white: '#FFF',
+  black: '#000',
   headerheight: '50px',
 };
 
