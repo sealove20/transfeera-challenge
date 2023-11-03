@@ -30,6 +30,14 @@ const receiversService = {
       },
     ).then((res) => res.json());
   },
+  deleteReceiver(receiverId) {
+    return fetch(
+      `${import.meta.env.VITE_TRANSFEERA_API_URL}/receivers/${receiverId}`,
+      {
+        method: 'DELETE',
+      },
+    ).then((res) => res.json());
+  },
 };
 
 export default receiversService;
