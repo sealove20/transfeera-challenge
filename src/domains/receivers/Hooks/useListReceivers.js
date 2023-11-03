@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import receiversService from '../../../core/services/receivers';
 
-const useReceivers = () => {
+const useListReceivers = () => {
   const [loading, setLoading] = useState(false);
   const [receivers, setReceivers] = useState([]);
 
@@ -23,4 +23,4 @@ const useReceivers = () => {
   };
 };
 
-export default useReceivers;
+export default useListReceivers;
