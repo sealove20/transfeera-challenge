@@ -24,7 +24,13 @@ const base = {
   red300: '#FF003A',
   red400: '#FF3569',
   red500: '#FF7D9C',
+  white: '#FFF',
+  black: '#000',
   headerheight: '50px',
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
 };
 
 export default base;
