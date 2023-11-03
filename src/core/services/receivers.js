@@ -18,6 +18,18 @@ const receiversService = {
       body: JSON.stringify(receiver),
     }).then((res) => res.json());
   },
+  editReceiver(receiver, receiverId) {
+    return fetch(
+      `${import.meta.env.VITE_TRANSFEERA_API_URL}/receivers/${receiverId}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(receiver),
+      },
+    ).then((res) => res.json());
+  },
 };
 
 export default receiversService;
