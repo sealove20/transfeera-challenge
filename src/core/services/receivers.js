@@ -1,7 +1,9 @@
+import { ReceiverParser } from '../parsers/receivers';
+
 const receiversService = {
   list() {
     return fetch(`${import.meta.env.VITE_TRANSFEERA_API_URL}/receivers`).then(
-      (res) => res.json(),
+      (res) => res.json().then(ReceiverParser.list),
     );
   },
   getById(receiverId) {
