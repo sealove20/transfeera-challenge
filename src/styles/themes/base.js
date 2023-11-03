@@ -27,10 +27,13 @@ const base = {
   white: '#FFF',
   black: '#000',
   headerheight: '50px',
+  navigationheight: '50px',
   sm: '640px',
   md: '768px',
   lg: '1024px',
   xl: '1280px',
+  regular: '1rem',
+  small: '0.875rem',
 };
 
 export default base;

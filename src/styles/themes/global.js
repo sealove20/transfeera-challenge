@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   * {
+    font-family: 'Roboto', sans-serif;
       /***
           The new CSS reset - version 1.11.1 (last updated 24.10.2023)
           GitHub page: https://github.com/elad2412/the-new-css-reset
