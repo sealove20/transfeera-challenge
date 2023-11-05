@@ -51,6 +51,7 @@ const sizes = {
   components: {
     headerheight: '50px',
     navigationheight: '50px',
+    footerHeight: '50px',
   },
   screen: {
     sm: '640px',
