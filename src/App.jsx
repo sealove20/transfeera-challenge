@@ -1,13 +1,13 @@
-import { Header } from './components/Header/Header';
+import { Header, Navigation } from './components';
+import { ReceiverList } from './domains/receivers/List/ReceiversList';
 
 function App() {
   return (
-    <>
+    <main>
       <Header />
-      <main>
-        <h1>Hello world</h1>
-      </main>
-    </>
+      <Navigation />
+      <ReceiverList />
+    </main>
   );
 }
 

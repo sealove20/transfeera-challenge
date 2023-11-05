@@ -1,6 +1,14 @@
-import useReceivers from '../Hooks/useListReceivers';
+import { PageHeader } from '../../../components';
+import { ReceiverListContainer } from '../styles/receivers.styles';
+import { ReceiverTable } from './ReceiverTable';
 
 export const ReceiverList = () => {
-  const { receivers } = useReceivers();
-  return <h1>Receivers</h1>;
+  return (
+    <>
+      <PageHeader />
+      <ReceiverListContainer>
+        <ReceiverTable />
+      </ReceiverListContainer>
+    </>
+  );
 };
