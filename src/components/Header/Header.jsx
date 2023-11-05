@@ -1,5 +1,5 @@
 import { HeaderContent, HeaderImage, Header as SHeader } from './Header.styles';
-import transfeeraLogo from '../../assets/transfeeraLogo.svg';
+import transfeeraLogo from '../../assets/transfeera-logo.svg';
 
 export const Header = () => {
   return (
