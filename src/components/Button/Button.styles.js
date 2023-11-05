@@ -5,7 +5,7 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  background-color: ${(props) => props.theme.colors.primaryButton};
+  background-color: ${(props) => props.theme.semanticColors.primaryButton};
   color: ${(props) => props.theme.colors.white};
   border-radius: 5px;
   width: 158px;

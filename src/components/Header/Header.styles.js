@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  height: ${(props) => props.theme.headerheight};
+  height: ${(props) => props.theme.sizes.components.headerheight};
   width: 100%;
-  background-color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme.colors.white};
 
-  @media (max-width: ${(props) => props.theme.sm}) {
+  @media (max-width: ${(props) => props.theme.sizes.screen.sm}) {
     display: flex;
     align-items: center;
     justify-content: center;

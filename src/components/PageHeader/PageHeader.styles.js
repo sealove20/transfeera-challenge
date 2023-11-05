@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const PageHeader = styled.section`
   height: 122px;
   width: 100%;
-  background-color: ${(props) => props.theme.gray700};
+  background-color: ${(props) => props.theme.colors.gray700};
 `;
 
 export const PageHeaderContainer = styled.div`
@@ -14,7 +14,7 @@ export const PageHeaderContainer = styled.div`
 
 export const PageHeaderTitle = styled.h1`
   font-size: 1.75rem;
-  color: ${(props) => props.theme.gray500};
+  color: ${(props) => props.theme.colors.gray500};
   font-weight: 300;
 `;
 
