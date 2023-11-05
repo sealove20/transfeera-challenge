@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Navigation = styled.nav`
-  height: ${(props) => props.theme.navigationheight};
+  height: ${(props) => props.theme.sizes.components.navigationheight};
   width: 100%;
-  background-color: ${(props) => props.theme.green300};
+  background-color: ${(props) => props.theme.colors.green300};
 `;
 
 export const NavigationContainer = styled.ul`
@@ -16,9 +16,9 @@ export const NavigationContainer = styled.ul`
 
 export const NavigationItem = styled.li`
   position: relative;
-  font-size: ${(props) => props.theme.small};
+  font-size: ${(props) => props.theme.typography.fontSize.small};
   font-weight: 400;
-  color: ${(props) => props.theme.white};
+  color: ${(props) => props.theme.colors.white};
   display: flex;
   align-items: center;
   height: 100%;
@@ -30,6 +30,6 @@ export const NavigationItem = styled.li`
     position: absolute;
     bottom: 0;
     width: 110%;
-    border-bottom: 3px solid ${(props) => props.theme.white};
+    border-bottom: 3px solid ${(props) => props.theme.colors.white};
   }
 `;
