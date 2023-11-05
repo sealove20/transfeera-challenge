@@ -56,6 +56,10 @@ const sizes = {
     lg: '1024px',
     xl: '1280px',
   },
+  borderRadius: {
+    regular: '5px',
+    rounded: '50%',
+  },
 };
 
 const typography = {
