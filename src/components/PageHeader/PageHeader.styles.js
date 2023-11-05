@@ -6,7 +6,7 @@ export const PageHeader = styled.section`
   background-color: ${(props) => props.theme.colors.gray700};
   display: flex;
   align-items: center;
-  padding: 40px 44px;
+  padding: 40px 45px;
 `;
 
 export const PageHeaderContainer = styled.div`
