@@ -23,6 +23,9 @@
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
     "react/function-component-definition": "off",
+    "jsx-a11y/control-has-associated-label": {
+      "ignoreElements": ["th"]
+    },
     "react-refresh/only-export-components": [
       "warn",
       { "allowConstantExport": true }
