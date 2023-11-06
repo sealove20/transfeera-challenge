@@ -47,6 +47,8 @@ const semanticColors = {
   inputText: colors.gray500,
   primaryButton: colors.blue600,
   outlinedButton: colors.green300,
+  successToast: colors.blue600,
+  dangerToast: colors.red600,
 };
 
 const sizes = {
@@ -71,6 +73,7 @@ const typography = {
   fontWeight: {
     light: '300',
     regular: '400',
+    medium: '500',
     semibold: '600',
     bold: '700',
   },
