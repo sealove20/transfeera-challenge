@@ -9,4 +9,5 @@ export const Footer = styled.footer`
 export const FooterImage = styled.img`
   height: ${(props) => props.theme.sizes.components.footerHeight};
   width: 98px;
+  margin: 2rem 0;
 `;
