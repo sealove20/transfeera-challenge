@@ -12,7 +12,7 @@ import {
   PageHeader as SPageHeader,
 } from './PageHeader.styles';
 
-export const PageHeader = ({ onOpenModal }) => {
+export const PageHeader = ({ onOpenModal, onNavigate }) => {
   return (
     <SPageHeader>
       <PageHeaderContainer>
@@ -20,7 +20,7 @@ export const PageHeader = ({ onOpenModal }) => {
         <CircleButton
           $size={41}
           $customCss={pageHeaderCTAButton}
-          onClick={onOpenModal}
+          onClick={onNavigate}
         >
           <PageHeaderPlusIcon src={plusIcon} />
         </CircleButton>

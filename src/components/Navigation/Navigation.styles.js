@@ -9,7 +9,7 @@ export const Navigation = styled.nav`
 export const NavigationContainer = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: ${(props) => (props.$isHome ? 'flex-start' : 'flex-end')};
   height: 100%;
   padding: 0 50px;
 `;
@@ -32,4 +32,10 @@ export const NavigationItem = styled.li`
     width: 110%;
     border-bottom: 3px solid ${(props) => props.theme.colors.white};
   }
+`;
+
+export const CloseIcon = styled.img`
+  height: 21px;
+  width: 21px;
+  cursor: pointer;
 `;
