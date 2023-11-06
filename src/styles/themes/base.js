@@ -33,6 +33,7 @@ export const colors = {
   red300: '#FF003A',
   red400: '#FF3569',
   red500: '#FF7D9C',
+  red600: '#FC1E38',
 
   white: '#FFFFFF',
   black: '#000000',
@@ -45,6 +46,7 @@ const semanticColors = {
   inputLabel: colors.gray500,
   inputText: colors.gray500,
   primaryButton: colors.blue600,
+  outlinedButton: colors.green300,
 };
 
 const sizes = {
@@ -73,6 +75,8 @@ const typography = {
     bold: '700',
   },
   fontSize: {
+    extraLarge: '1.75rem',
+    large: '1.375rem',
     regular: '1rem',
     small: '0.875rem',
   },

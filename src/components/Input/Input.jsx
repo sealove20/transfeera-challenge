@@ -4,8 +4,10 @@ import {
   Suffix,
 } from './Input.styles';
 
-export const Input = () => {
-  return <SInput placeholder="Nome, CPF, agência ou conta" />;
+export const Input = ({ $customCss }) => {
+  return (
+    <SInput placeholder="Nome, CPF, agência ou conta" $customCss={$customCss} />
+  );
 };
 
 export const InputWithSuffix = ({ children }) => {

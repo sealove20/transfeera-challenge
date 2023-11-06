@@ -27,14 +27,14 @@ export const PageHeaderPlusIcon = styled.img`
   width: 20px;
 `;
 
-export const PageHeaderCTAButton = css`
+export const PageHeaderSearchIcon = styled.img`
+  height: 16px;
+  width: 16px;
+`;
+
+export const pageHeaderCTAButton = css`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 8px;
-`;
-
-export const PageHeaderSearchIcon = styled.img`
-  height: 16px;
-  width: 16px;
 `;

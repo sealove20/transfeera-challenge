@@ -6,6 +6,7 @@ export const Input = styled.input`
   background-color: ${(props) => props.theme.colors.white};
   font-size: ${(props) => props.theme.typography.fontSize.small};
   border-radius: ${(props) => props.theme.sizes.borderRadius.regular};
+  border: 2px solid ${(props) => props.theme.colors.gray700};
   padding: 5px;
   color: ${(props) => props.theme.colors.gray500};
 
@@ -13,6 +14,8 @@ export const Input = styled.input`
     color: ${(props) => props.theme.colors.gray300};
     font-size: ${(props) => props.theme.typography.fontSize.small};
   }
+
+  ${(props) => props.$customCss}
 `;
 
 export const InputWithSuffixContainer = styled.div`

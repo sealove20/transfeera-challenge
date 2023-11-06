@@ -11,4 +11,5 @@ export const Status = styled.div`
   color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.typography.fontWeight.regular};
   font-size: ${(props) => props.theme.typography.fontSize.small};
+  ${(props) => props.$customCss}
 `;
