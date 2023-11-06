@@ -12,6 +12,7 @@ export const Button = styled.button`
   height: 50px;
   cursor: pointer;
   font-weight: 400;
+  ${(props) => props.$customCss}
 `;
 
 export const CircleButton = styled(Button)`
@@ -21,4 +22,10 @@ export const CircleButton = styled(Button)`
   padding: 0;
   background-color: ${(props) => props.theme.colors.green300};
   ${(props) => props.$customCss}
+`;
+
+export const OutlinedButton = styled(Button)`
+  border: 1px solid ${(props) => props.theme.semanticColors.outlinedButton};
+  background-color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.semanticColors.outlinedButton};
 `;
