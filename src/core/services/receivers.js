@@ -1,3 +1,4 @@
+import { ReceiverModel } from '../models/receivers';
 import { ReceiverParser } from '../parsers/receivers';
 
 const receiversService = {
@@ -17,7 +18,7 @@ const receiversService = {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(receiver),
+      body: JSON.stringify(ReceiverModel.single(receiver)),
     }).then((res) => res.json());
   },
   editReceiver(receiver, receiverId) {
