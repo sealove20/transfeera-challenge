@@ -68,5 +68,8 @@ export const DangerToast = styled(Toast)`
 `;
 
 export const SuccessToast = styled(Toast)`
-  background-color: blue;
+  background-color: ${(props) => props.theme.semanticColors.successToast};
+  color: ${(props) => props.theme.colors.white};
+  font-weight: ${(props) => props.theme.typography.fontWeight.medium};
+  font-size: ${(props) => props.theme.typography.fontSize.small};
 `;
