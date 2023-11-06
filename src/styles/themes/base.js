@@ -49,6 +49,7 @@ const semanticColors = {
   outlinedButton: colors.green300,
   successToast: colors.blue600,
   dangerToast: colors.red600,
+  dangerText: colors.red500,
 };
 
 const sizes = {
@@ -82,6 +83,7 @@ const typography = {
     large: '1.375rem',
     regular: '1rem',
     small: '0.875rem',
+    extraSmall: '0.75rem',
   },
 };
 
