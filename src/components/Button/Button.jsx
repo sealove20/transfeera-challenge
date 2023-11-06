@@ -4,8 +4,12 @@ import {
   OutlinedButton as SOutlinedButton,
 } from './Button.styles';
 
-export const Button = ({ children, $customCss }) => {
-  return <SButton $customCss={$customCss}>{children}</SButton>;
+export const Button = ({ children, $customCss, ...props }) => {
+  return (
+    <SButton $customCss={$customCss} {...props}>
+      {children}
+    </SButton>
+  );
 };
 
 export const CircleButton = ({ children, $size, $customCss, ...props }) => {
