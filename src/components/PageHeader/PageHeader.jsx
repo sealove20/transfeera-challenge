@@ -12,7 +12,7 @@ import {
   PageHeader as SPageHeader,
 } from './PageHeader.styles';
 
-export const PageHeader = ({ onOpenModal, onNavigate }) => {
+export const PageHeader = ({ onNavigate }) => {
   return (
     <SPageHeader>
       <PageHeaderContainer>

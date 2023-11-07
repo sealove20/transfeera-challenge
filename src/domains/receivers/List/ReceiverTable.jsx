@@ -5,7 +5,7 @@ import { TableContainer } from '../../../components/Table/TableContainer/TableCo
 import { TableHeader } from '../../../components/Table/TableHeader/TableHeader';
 import { TableHeaderCell } from '../../../components/Table/TableHeaderCell/TableHeaderCell';
 import { TableHeaderRow } from '../../../components/Table/TableHeaderRow/TableHeaderRow';
-import { TableRowBankIcon } from '../styles/receivers.styles';
+import { TableRowBankIcon, clickable } from '../styles/receivers.styles';
 import bradescoLogo from '../../../assets/bradesco-logo.svg';
 import caixaLogo from '../../../assets/caixa-logo.svg';
 import sicoobLogo from '../../../assets/sicoob-logo.svg';
@@ -20,7 +20,11 @@ const mapBankToLogo = {
   sicoob: sicoobLogo,
 };
 
-export const ReceiverTable = ({ receivers }) => {
+export const ReceiverTable = ({ receivers, onOpenModal, fetchReceiver }) => {
+  const onNameClick = (id) => {
+    onOpenModal();
+    fetchReceiver(id);
+  };
   return (
     <TableContainer>
       <TableHeader>
@@ -43,7 +47,12 @@ export const ReceiverTable = ({ receivers }) => {
               <TableBodyCell>
                 <Checkbox />
               </TableBodyCell>
-              <TableBodyCell>{name}</TableBodyCell>
+              <TableBodyCell
+                $customCss={clickable}
+                onClick={() => onNameClick(id)}
+              >
+                {name}
+              </TableBodyCell>
               <TableBodyCell>
                 {taxId && taxId.length <= 11 ? maskCpf(taxId) : maskCnpj(taxId)}
               </TableBodyCell>

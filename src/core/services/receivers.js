@@ -10,7 +10,9 @@ const receiversService = {
   getById(receiverId) {
     return fetch(
       `${import.meta.env.VITE_TRANSFEERA_API_URL}/receivers/${receiverId}`,
-    ).then((res) => res.json());
+    )
+      .then((res) => res.json())
+      .then(ReceiverParser.single);
   },
   createReceiver(receiver) {
     return fetch(`${import.meta.env.VITE_TRANSFEERA_API_URL}/receivers`, {
@@ -29,7 +31,7 @@ const receiversService = {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(receiver),
+        body: JSON.stringify(ReceiverModel.single(receiver)),
       },
     ).then((res) => res.json());
   },

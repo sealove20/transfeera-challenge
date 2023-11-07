@@ -20,6 +20,7 @@ const useListReceivers = () => {
   return {
     loading,
     receivers,
+    fetchReceivers,
   };
 };
 

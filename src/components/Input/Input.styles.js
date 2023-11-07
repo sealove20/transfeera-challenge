@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import InputMask from 'react-input-mask';
 
 const inputBaseStyle = css`
-  width: 254px;
+  width: 100%;
   height: 31px;
   background-color: ${(props) => props.theme.colors.white};
   font-size: ${(props) => props.theme.typography.fontSize.small};
@@ -35,4 +35,5 @@ export const Suffix = styled.div`
 
 export const MaskedInput = styled(InputMask)`
   ${inputBaseStyle}
+  ${(props) => props.$customCss}
 `;

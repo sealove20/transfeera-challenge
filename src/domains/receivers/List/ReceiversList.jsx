@@ -2,12 +2,21 @@ import { PageHeader } from '../../../components';
 import { ReceiverListContainer } from '../styles/receivers.styles';
 import { ReceiverTable } from './ReceiverTable';
 
-export const ReceiverList = ({ onOpenModal, onNavigate, receivers }) => {
+export const ReceiverList = ({
+  onOpenModal,
+  onNavigate,
+  receivers,
+  fetchReceiver,
+}) => {
   return (
     <>
-      <PageHeader onOpenModal={onOpenModal} onNavigate={onNavigate} />
+      <PageHeader onNavigate={onNavigate} />
       <ReceiverListContainer>
-        <ReceiverTable receivers={receivers} />
+        <ReceiverTable
+          receivers={receivers}
+          onOpenModal={onOpenModal}
+          fetchReceiver={fetchReceiver}
+        />
       </ReceiverListContainer>
     </>
   );

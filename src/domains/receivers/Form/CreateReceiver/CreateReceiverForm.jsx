@@ -13,28 +13,28 @@ import {
   FormActions,
   ButtonGroup,
   CreateReceiverFormContainer,
-  ErrorTip,
-  Select,
-  SelectOption,
   formSelectSpacing,
 } from './CreateReceiverForm.styles';
 
-import { Button, Input } from '../../../components';
-import { OutlinedButton } from '../../../components/Button/Button';
-import { MaskedInput } from '../../../components/Input/Input';
+import { Button, Input } from '../../../../components';
+import { OutlinedButton } from '../../../../components/Button/Button';
+import { MaskedInput } from '../../../../components/Input/Input';
 
-import useCreateReceiver from '../Hooks/useCreateReceiver';
+import useCreateReceiver from '../../Hooks/useCreateReceiver';
 import { useEffect } from 'react';
 import {
   cpfMask,
   cpfMaskExample,
   mapMaskExampleType,
   mapMaskType,
-} from '../../../constants/masks';
-import { schema } from './receiver.schema';
-import { useToast } from '../../../components/ToastNotification/ToastNotification';
+} from '../../../../constants/masks';
+import { receiverCreateSchema } from '../receiver.schema';
+import { useToast } from '../../../../components/ToastNotification/ToastNotification';
+import { ErrorTip } from '../../styles/receivers.styles';
+import { Select } from '../../../../components/Select/Select';
+import { SelectOption } from '../../../../components/Select/SelectOption/SelectOption';
 
-export const CreateReceiverForm = ({ navigateToHome }) => {
+export const CreateReceiverForm = ({ navigateToHome, fetchReceivers }) => {
   const { createReceiver } = useCreateReceiver();
   const { add: addToast } = useToast();
 
@@ -42,21 +42,24 @@ export const CreateReceiverForm = ({ navigateToHome }) => {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
     control,
     watch,
     setValue,
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(receiverCreateSchema),
     defaultValues: {
       pixKeyType: 'cpf',
     },
   });
 
   const onSubmit = (receiver) => {
-    createReceiver(receiver);
-    addToast('Favorecido criado com sucesso', 'success');
-    navigateToHome();
+    setValue('status', 'rascunho');
+    createReceiver(receiver).then(() => {
+      fetchReceivers();
+      addToast('Favorecido criado com sucesso', 'success');
+      window.scrollTo({ top: 0, left: 0 });
+      navigateToHome();
+    });
   };
 
   useEffect(() => {

@@ -81,6 +81,7 @@ const typography = {
   fontSize: {
     extraLarge: '1.75rem',
     large: '1.375rem',
+    big: '1.125rem',
     regular: '1rem',
     small: '0.875rem',
     extraSmall: '0.75rem',
