@@ -6,4 +6,6 @@ export const TableBodyCell = styled.td`
   border-color: transparent;
   font-size: 14px;
   vertical-align: middle;
+
+  ${(props) => props.$customCss}
 `;
