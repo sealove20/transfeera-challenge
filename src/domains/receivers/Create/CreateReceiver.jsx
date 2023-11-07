@@ -1,5 +1,10 @@
-import { CreateReceiverForm } from '../Form/CreateReceiverForm';
+import { CreateReceiverForm } from '../Form/CreateReceiver/CreateReceiverForm';
 
-export const CreateReceiver = ({ navigateToHome }) => {
-  return <CreateReceiverForm navigateToHome={navigateToHome} />;
+export const CreateReceiver = ({ navigateToHome, fetchReceivers }) => {
+  return (
+    <CreateReceiverForm
+      navigateToHome={navigateToHome}
+      fetchReceivers={fetchReceivers}
+    />
+  );
 };
