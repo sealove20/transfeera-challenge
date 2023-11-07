@@ -5,11 +5,14 @@ import { Modal } from './components/Modal/Modal';
 import { ReceiverList } from './domains/receivers/List/ReceiversList';
 import { useToast } from './components/ToastNotification/ToastNotification';
 import { CreateReceiver } from './domains/receivers/Create/CreateReceiver';
+import useListReceivers from './domains/receivers/Hooks/useListReceivers';
 
 function App() {
   const [isModalVisible, setModalVisibility] = useState(false);
   const [navigation, setNavigation] = useState('home');
   const { add: addToast } = useToast();
+
+  const { receivers } = useListReceivers();
 
   const navigateToHome = () => setNavigation('home');
   const navigateToCreateForm = () => setNavigation('create-receiver');
@@ -31,6 +34,7 @@ function App() {
         <ReceiverList
           onOpenModal={onOpenModal}
           onNavigate={navigateToCreateForm}
+          receivers={receivers}
         />
       ) : (
         <CreateReceiver navigateToHome={navigateToHome} />

@@ -9,7 +9,7 @@ const useListReceivers = () => {
     setLoading(true);
     return receiversService
       .list()
-      .then(setReceivers)
+      .then((receivers) => setReceivers(receivers.receivers))
       .finally(() => setLoading(false));
   };
 
