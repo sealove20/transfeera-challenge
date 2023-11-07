@@ -7,10 +7,20 @@ import { TableHeaderCell } from '../../../components/Table/TableHeaderCell/Table
 import { TableHeaderRow } from '../../../components/Table/TableHeaderRow/TableHeaderRow';
 import { TableRowBankIcon } from '../styles/receivers.styles';
 import bradescoLogo from '../../../assets/bradesco-logo.svg';
+import caixaLogo from '../../../assets/caixa-logo.svg';
+import sicoobLogo from '../../../assets/sicoob-logo.svg';
+import otherLogo from '../../../assets/bank-logo-placeholder.svg';
 import { Status } from '../../../components/Status/Status';
 import { Checkbox } from '../../../components/Checkbox/Checkbox';
+import { addDashAtTheEnd, maskCnpj, maskCpf } from '../../../common-functions';
 
-export const ReceiverTable = () => {
+const mapBankToLogo = {
+  bradesco: bradescoLogo,
+  caixa: caixaLogo,
+  sicoob: sicoobLogo,
+};
+
+export const ReceiverTable = ({ receivers }) => {
   return (
     <TableContainer>
       <TableHeader>
@@ -27,36 +37,33 @@ export const ReceiverTable = () => {
         </TableHeaderRow>
       </TableHeader>
       <TableBody>
-        <TableBodyRow>
-          <TableBodyCell>
-            <Checkbox />
-          </TableBodyCell>
-          <TableBodyCell>Bárbara da Silva Silveira Fontes</TableBodyCell>
-          <TableBodyCell>021.935.239-12</TableBodyCell>
-          <TableBodyCell>
-            <TableRowBankIcon src={bradescoLogo} />
-          </TableBodyCell>
-          <TableBodyCell>0814-0</TableBodyCell>
-          <TableBodyCell>01002713-9</TableBodyCell>
-          <TableBodyCell>
-            <Status>Validado</Status>
-          </TableBodyCell>
-        </TableBodyRow>
-        <TableBodyRow>
-          <TableBodyCell>
-            <Checkbox />
-          </TableBodyCell>
-          <TableBodyCell>Bárbara da Silva Silveira Fontes</TableBodyCell>
-          <TableBodyCell>021.935.239-12</TableBodyCell>
-          <TableBodyCell>
-            <TableRowBankIcon src={bradescoLogo} />
-          </TableBodyCell>
-          <TableBodyCell>0814-0</TableBodyCell>
-          <TableBodyCell>01002713-9</TableBodyCell>
-          <TableBodyCell>
-            <Status>Validado</Status>
-          </TableBodyCell>
-        </TableBodyRow>
+        {receivers?.map(
+          ({ id, name, taxId, bankName, branch, account, status }) => (
+            <TableBodyRow key={id}>
+              <TableBodyCell>
+                <Checkbox />
+              </TableBodyCell>
+              <TableBodyCell>{name}</TableBodyCell>
+              <TableBodyCell>
+                {taxId && taxId.length <= 11 ? maskCpf(taxId) : maskCnpj(taxId)}
+              </TableBodyCell>
+              <TableBodyCell>
+                <TableRowBankIcon
+                  src={mapBankToLogo[bankName?.toLowerCase()] || otherLogo}
+                />
+              </TableBodyCell>
+              <TableBodyCell>
+                {branch && addDashAtTheEnd(branch.toString())}
+              </TableBodyCell>
+              <TableBodyCell>
+                {account && addDashAtTheEnd(account.toString())}
+              </TableBodyCell>
+              <TableBodyCell>
+                <Status $status={status}>{status}</Status>
+              </TableBodyCell>
+            </TableBodyRow>
+          ),
+        )}
       </TableBody>
     </TableContainer>
   );

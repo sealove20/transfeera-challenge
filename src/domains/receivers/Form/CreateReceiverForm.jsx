@@ -112,7 +112,7 @@ export const CreateReceiverForm = ({ navigateToHome }) => {
           <Input placeholderText="Digite o email" {...register('email')} />
           <ErrorTip>{errors.email?.message}</ErrorTip>
         </FormGroup>
-        <HeaderSubTitle>Quais os dados bancários do favorecido?</HeaderSubTitle>
+        <HeaderSubTitle>Qual a chave pix?</HeaderSubTitle>
         <FormGroup $customCss={formGroupTopSpacing}>
           <FormLabel htmlFor="">Tipo de chave</FormLabel>
           <Select {...register('pixKeyType')} $customCss={formSelectSpacing}>

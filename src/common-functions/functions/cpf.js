@@ -1,3 +1,6 @@
+const cpfRegex = /^([\d_]{3})([\d_]{3})([\d_]{3})([\d_]{2})$/g;
+const cpfMask = '$1.$2.$3-$4';
+
 export const validateCPF = (cpf) => {
   if (typeof cpf !== 'string') return false;
   cpf = cpf.replace(/[^\d]+/g, '');
@@ -12,3 +15,13 @@ export const validateCPF = (cpf) => {
     10;
   return rest(10) === cpf[9] && rest(11) === cpf[10];
 };
+
+export const formatCpf = (cpf) => cpf.replace(cpfRegex, cpfMask);
+
+export const maskCpf = (value = '') =>
+  formatCpf(
+    value
+      .replace(/\D/g, '')
+      .replace(/(\d{11})[\w\W]/, '$1')
+      .padStart(11, '_'),
+  );

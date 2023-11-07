@@ -1,5 +1,9 @@
 import { Status as SStatus } from './Status.styles';
 
-export const Status = ({ children, $customCss }) => {
-  return <SStatus $customCss={$customCss}>{children}</SStatus>;
+export const Status = ({ children, $customCss, $status }) => {
+  return (
+    <SStatus $customCss={$customCss} $status={$status}>
+      {children}
+    </SStatus>
+  );
 };
