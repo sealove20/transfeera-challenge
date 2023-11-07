@@ -1,3 +1,6 @@
+const cnpjRegex = /^([\d_]{2})([\d_]{3})([\d_]{3})([\d_]{4})([\d_]{2})$/g;
+const cnpjMask = '$1.$2.$3/$4-$5';
+
 const getRemaining = (value) => (value % 11 < 2 ? 0 : 11 - (value % 11));
 
 const generateCheckSums = (numbers, validators) => {
@@ -29,3 +32,13 @@ export const validateCNPJ = (value) => {
     numbers[13] === getRemaining(checkers[1])
   );
 };
+
+export const formatCnpj = (cnpj) => cnpj.replace(cnpjRegex, cnpjMask);
+
+export const maskCnpj = (value = '') =>
+  formatCnpj(
+    value
+      .replace(/\D/g, '')
+      .replace(/(\d{14})[\w\W]/, '$1')
+      .padStart(14, '_'),
+  );
