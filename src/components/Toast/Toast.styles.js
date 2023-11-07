@@ -58,6 +58,9 @@ export const CloseIcon = styled.img`
   height: 15px;
   width: 14px;
   cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 15px;
 `;
 
 export const DangerToast = styled(Toast)`
