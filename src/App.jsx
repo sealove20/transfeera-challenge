@@ -3,25 +3,40 @@ import { Header, Navigation } from './components';
 import { Footer } from './components/Footer/Footer';
 import { Modal } from './components/Modal/Modal';
 import { ReceiverList } from './domains/receivers/List/ReceiversList';
-import { useToast } from './components/ToastNotification/ToastNotification';
 import { CreateReceiver } from './domains/receivers/Create/CreateReceiver';
 import useListReceivers from './domains/receivers/Hooks/useListReceivers';
+import {
+  deleteModal,
+  deleteModalBackdrop,
+  draftModal,
+} from './domains/receivers/styles/receivers.styles';
+import { DraftModal } from './domains/receivers/Modal/DraftModal/DraftModal';
+import useGetReceiver from './domains/receivers/Hooks/useGetReceiver';
+import { DeleteModal } from './domains/receivers/Modal/DeleteModal/DeleteModal';
 
 function App() {
-  const [isModalVisible, setModalVisibility] = useState(false);
+  const [isDraftModalVisible, setDraftModalVisibility] = useState(false);
+  const [isDeleteModalVisible, setDeleteModalVisibility] = useState(false);
   const [navigation, setNavigation] = useState('home');
-  const { add: addToast } = useToast();
 
-  const { receivers } = useListReceivers();
+  const { receivers, fetchReceivers } = useListReceivers();
+  const { receiver, fetchReceiver } = useGetReceiver();
 
   const navigateToHome = () => setNavigation('home');
   const navigateToCreateForm = () => setNavigation('create-receiver');
 
-  const onOpenModal = () => {
-    addToast('Informe um e-mail válido');
+  const onOpenDraftModal = () => {
+    setDraftModalVisibility(true);
   };
-  const onCloseModal = () => {
-    setModalVisibility(false);
+  const onCloseDraftModal = () => {
+    setDraftModalVisibility(false);
+  };
+
+  const onOpenDeleteModal = () => {
+    setDeleteModalVisibility(true);
+  };
+  const onCloseDeleteModal = () => {
+    setDeleteModalVisibility(false);
   };
 
   const isHomeScreen = navigation === 'home';
@@ -32,15 +47,46 @@ function App() {
       <Navigation isHome={isHomeScreen} onCloseClick={navigateToHome} />
       {isHomeScreen ? (
         <ReceiverList
-          onOpenModal={onOpenModal}
+          onOpenModal={onOpenDraftModal}
           onNavigate={navigateToCreateForm}
           receivers={receivers}
+          fetchReceiver={fetchReceiver}
         />
       ) : (
-        <CreateReceiver navigateToHome={navigateToHome} />
+        <CreateReceiver
+          navigateToHome={navigateToHome}
+          fetchReceivers={fetchReceivers}
+        />
       )}
       <Footer />
-      <Modal isVisible={isModalVisible} onCloseClick={onCloseModal} />
+      <Modal
+        $customCss={draftModal}
+        isVisible={isDraftModalVisible}
+        onCloseClick={onCloseDraftModal}
+        title={receiver?.name}
+      >
+        <DraftModal
+          onCloseClick={onCloseDraftModal}
+          onOpenDeleteModal={onOpenDeleteModal}
+          receiver={receiver}
+          fetchReceivers={fetchReceivers}
+          onCloseDraftModal={onCloseDraftModal}
+        />
+      </Modal>
+      <Modal
+        title="Excluir favorecido"
+        $customCss={deleteModal}
+        $customBackgropCss={deleteModalBackdrop}
+        isVisible={isDeleteModalVisible}
+        onCloseClick={onCloseDeleteModal}
+      >
+        <DeleteModal
+          onCloseDeleteModal={onCloseDeleteModal}
+          onCloseDraftModal={onCloseDraftModal}
+          receiver={receiver}
+          fetchReceivers={fetchReceivers}
+        />
+      </Modal>
     </main>
   );
 }
