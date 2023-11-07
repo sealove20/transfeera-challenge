@@ -30,9 +30,23 @@ export const InputWithSuffix = ({ children }) => {
 
 export const MaskedInput = forwardRef(
   (
-    { value = '', onChange, formatterFunction, register, registerId, ...props },
+    {
+      value = '',
+      $customCss,
+      onChange,
+      formatterFunction,
+      register,
+      registerId,
+      ...props
+    },
     ref,
   ) => {
-    return <SMaskedInput {...props} {...register(registerId)} />;
+    return (
+      <SMaskedInput
+        {...props}
+        {...register(registerId)}
+        $customCss={$customCss}
+      />
+    );
   },
 );
