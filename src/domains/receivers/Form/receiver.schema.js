@@ -7,8 +7,9 @@ import {
   validateRandomKey,
 } from '../../../common-functions';
 
-export const schema = yup
-  .object({
+export const receiverCreateSchema = yup
+  .object()
+  .shape({
     name: yup.string().required('O campo nome é obrigatório'),
     email: yup
       .string()
@@ -58,5 +59,14 @@ export const schema = yup
         is: 'email',
         then: () => yup.string().email('Email inválido'),
       }),
+  })
+  .required();
+
+export const receiverEditSchema = receiverCreateSchema
+  .shape({
+    bankName: yup.string().required('O campo nome do banco é obrigatório'),
+    branch: yup.string().required('O campo número da agência é obrigatório'),
+    accountType: yup.string().required('O campo tipo de conta é obrigatório'),
+    account: yup.string().required('O campo número da conta é obrigatório'),
   })
   .required();
