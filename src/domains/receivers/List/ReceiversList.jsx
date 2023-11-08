@@ -3,7 +3,8 @@ import { ReceiverListContainer } from '../styles/receivers.styles';
 import { ReceiverTable } from './ReceiverTable';
 
 export const ReceiverList = ({
-  onOpenModal,
+  onOpenDraftModal,
+  onOpenValidatedModal,
   onNavigate,
   receivers,
   fetchReceiver,
@@ -14,7 +15,8 @@ export const ReceiverList = ({
       <ReceiverListContainer>
         <ReceiverTable
           receivers={receivers}
-          onOpenModal={onOpenModal}
+          onOpenDraftModal={onOpenDraftModal}
+          onOpenValidatedModal={onOpenValidatedModal}
           fetchReceiver={fetchReceiver}
         />
       </ReceiverListContainer>
