@@ -10,9 +10,10 @@ import {
   PageHeaderSearchIcon,
   PageHeaderTitle,
   PageHeader as SPageHeader,
+  searchFontStyle,
 } from './PageHeader.styles';
 
-export const PageHeader = ({ onNavigate }) => {
+export const PageHeader = ({ onNavigate, search, handleSearchChange }) => {
   return (
     <SPageHeader>
       <PageHeaderContainer>
@@ -25,7 +26,12 @@ export const PageHeader = ({ onNavigate }) => {
           <PageHeaderPlusIcon src={plusIcon} />
         </CircleButton>
       </PageHeaderContainer>
-      <InputWithSuffix placeholderText="Nome, CPF, agência ou conta">
+      <InputWithSuffix
+        onChange={handleSearchChange}
+        value={search}
+        $customCss={searchFontStyle}
+        placeholderText="Nome, CPF, agência ou conta"
+      >
         <PageHeaderSearchIcon src={searchLogo} />
       </InputWithSuffix>
     </SPageHeader>
