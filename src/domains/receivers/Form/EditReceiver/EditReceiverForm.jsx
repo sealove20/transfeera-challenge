@@ -10,7 +10,6 @@ import {
   FormGroup,
   FormLabel,
   TrashIcon,
-  deleteReceiverButton,
   formGroupLeftSpacing,
   formGroupSpaceBetween,
   formGroupTopSpacing,
@@ -24,7 +23,11 @@ import {
 import trashIcon from '../../../../assets/trash-icon.svg';
 import { Button, Input } from '../../../../components';
 import { OutlinedButton } from '../../../../components/Button/Button';
-import { ErrorTip, SubTitle } from '../../styles/receivers.styles';
+import {
+  ErrorTip,
+  SubTitle,
+  deleteReceiverButton,
+} from '../../styles/receivers.styles';
 import { receiverEditSchema } from '../receiver.schema';
 import {
   cpfMask,
@@ -54,6 +57,7 @@ export const EditReceiverForm = ({
     control,
     watch,
     setValue,
+    getValues,
   } = useForm({
     resolver: yupResolver(receiverEditSchema),
     defaultValues: {
@@ -170,16 +174,19 @@ export const EditReceiverForm = ({
       </FormGroup>
       <FormGroup $customCss={formGroupSpaceBetween}>
         <FormLabel htmlFor="">Chave</FormLabel>
-        <MaskedInput
-          mask={mapMaskType[watch('pixKeyType')]}
-          alwaysShowMask={false}
-          maskChar=""
-          type={'text'}
-          $customCss={inputSizes}
-          placeholder={`Ex: ${mapMaskExampleType[watch('pixKeyType')]}`}
-          register={register}
-          registerId="pixKey"
-        />
+        {getValues('pixKeyType') === 'email' ? (
+          <Input placeholderText="email@email.com" {...register('pixKey')} />
+        ) : (
+          <MaskedInput
+            mask={mapMaskType[watch('pixKeyType')]}
+            alwaysShowMask={false}
+            maskChar=""
+            type={'text'}
+            placeholder={`Ex: ${mapMaskExampleType[watch('pixKeyType')]}`}
+            register={register}
+            registerId="pixKey"
+          />
+        )}
         <ErrorTip>{errors.pixKey?.message}</ErrorTip>
       </FormGroup>
       <GroupContainer>
