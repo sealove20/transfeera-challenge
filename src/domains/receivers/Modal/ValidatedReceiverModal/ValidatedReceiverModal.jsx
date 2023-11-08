@@ -3,6 +3,7 @@ import {
   maskCnpj,
   maskCpf,
 } from '../../../../common-functions';
+import { Loading } from '../../../../components/Loading/Loading';
 import { Status } from '../../../../components/Status/Status';
 import { ValidatedReceiverForm } from '../../Form/ValidatedReceiver/ValidatedReceiverForm';
 import { modalStatus } from '../../styles/receivers.styles';
@@ -19,7 +20,9 @@ export const ValidatedReceiverModal = ({
   onCloseClick,
   onOpenDeleteModal,
   fetchReceivers,
+  pagination,
   onCloseValidatedModal,
+  loading,
 }) => {
   const { status, taxId, bankName, branch, account, accountType } = receiver;
 
@@ -28,6 +31,10 @@ export const ValidatedReceiverModal = ({
   const maskedAccount = addDashAtTheEnd(account);
   const formatedAccountType =
     accountType === 'corrente' ? 'Conta Corrente' : 'Conta Poupança';
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -64,6 +71,7 @@ export const ValidatedReceiverModal = ({
         receiver={receiver}
         fetchReceivers={fetchReceivers}
         onCloseValidatedModal={onCloseValidatedModal}
+        pagination={pagination}
       />
     </>
   );

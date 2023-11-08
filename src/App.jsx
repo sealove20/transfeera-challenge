@@ -22,9 +22,18 @@ function App() {
     useState(false);
   const [navigation, setNavigation] = useState('home');
 
-  const { receivers, fetchReceivers, pagination, onChangePagination } =
-    useListReceivers();
-  const { receiver, fetchReceiver } = useGetReceiver();
+  const {
+    receivers,
+    fetchReceivers,
+    pagination,
+    onChangePagination,
+    loading: receiversListLoading,
+  } = useListReceivers();
+  const {
+    receiver,
+    fetchReceiver,
+    loading: getReceiverLoading,
+  } = useGetReceiver();
 
   const navigateToHome = () => setNavigation('home');
   const navigateToCreateForm = () => setNavigation('create-receiver');
@@ -65,11 +74,13 @@ function App() {
           fetchReceiver={fetchReceiver}
           pagination={pagination}
           onChangePagination={onChangePagination}
+          loading={receiversListLoading}
         />
       ) : (
         <CreateReceiver
           navigateToHome={navigateToHome}
           fetchReceivers={fetchReceivers}
+          pagination={pagination}
         />
       )}
       <Footer />
@@ -85,6 +96,8 @@ function App() {
           receiver={receiver}
           fetchReceivers={fetchReceivers}
           onCloseDraftModal={onCloseDraftModal}
+          pagination={pagination}
+          loading={getReceiverLoading}
         />
       </Modal>
       <Modal
@@ -99,6 +112,8 @@ function App() {
           receiver={receiver}
           fetchReceivers={fetchReceivers}
           onCloseValidatedModal={onCloseValidatedModal}
+          pagination={pagination}
+          loading={getReceiverLoading}
         />
       </Modal>
       <Modal
@@ -114,6 +129,7 @@ function App() {
           onCloseValidatedModal={onCloseValidatedModal}
           receiver={receiver}
           fetchReceivers={fetchReceivers}
+          pagination={pagination}
         />
       </Modal>
     </main>

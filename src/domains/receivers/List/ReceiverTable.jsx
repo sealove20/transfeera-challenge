@@ -26,6 +26,7 @@ export const ReceiverTable = ({
   onOpenValidatedModal,
   fetchReceiver,
   search,
+  loading,
 }) => {
   const onNameClick = (id, status) => {
     status === 'rascunho' ? onOpenDraftModal() : onOpenValidatedModal();
@@ -57,7 +58,7 @@ export const ReceiverTable = ({
           <TableHeaderCell>Status do favorecido</TableHeaderCell>
         </TableHeaderRow>
       </TableHeader>
-      <TableBody>
+      <TableBody isLoading={loading}>
         {getFilteredReceivers()?.map(
           ({ id, name, taxId, bankName, branch, account, status }) => (
             <TableBodyRow key={id}>
