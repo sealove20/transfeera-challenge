@@ -80,6 +80,7 @@ const typography = {
   },
   fontSize: {
     extraLarge: '1.75rem',
+    huge: '1.5rem',
     large: '1.375rem',
     big: '1.125rem',
     regular: '1rem',

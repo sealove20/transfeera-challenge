@@ -1,6 +1,5 @@
 import { EditReceiverForm } from '../../Form/EditReceiver/EditReceiverForm';
-import { SubTitle } from '../../styles/receivers.styles';
-import { modalStatus } from './DraftModal.styles';
+import { SubTitle, modalStatus } from '../../styles/receivers.styles';
 import { Status } from '../../../../components/Status/Status';
 
 export const DraftModal = ({

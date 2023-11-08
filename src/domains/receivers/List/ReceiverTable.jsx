@@ -20,9 +20,14 @@ const mapBankToLogo = {
   sicoob: sicoobLogo,
 };
 
-export const ReceiverTable = ({ receivers, onOpenModal, fetchReceiver }) => {
-  const onNameClick = (id) => {
-    onOpenModal();
+export const ReceiverTable = ({
+  receivers,
+  onOpenDraftModal,
+  onOpenValidatedModal,
+  fetchReceiver,
+}) => {
+  const onNameClick = (id, status) => {
+    status === 'rascunho' ? onOpenDraftModal() : onOpenValidatedModal();
     fetchReceiver(id);
   };
   return (
@@ -49,7 +54,7 @@ export const ReceiverTable = ({ receivers, onOpenModal, fetchReceiver }) => {
               </TableBodyCell>
               <TableBodyCell
                 $customCss={clickable}
-                onClick={() => onNameClick(id)}
+                onClick={() => onNameClick(id, status)}
               >
                 {name}
               </TableBodyCell>

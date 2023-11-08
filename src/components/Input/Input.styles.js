@@ -25,6 +25,7 @@ export const Input = styled.input`
 
 export const InputWithSuffixContainer = styled.div`
   position: relative;
+  width: 300px;
 `;
 
 export const Suffix = styled.div`

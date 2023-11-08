@@ -56,11 +56,6 @@ export const TrashIcon = styled.img`
   width: 14px;
 `;
 
-export const deleteReceiverButton = css`
-  width: 62px;
-  background: ${(props) => props.theme.colors.red600};
-`;
-
 export const modalStatus = css`
   margin-top: 35px;
 `;

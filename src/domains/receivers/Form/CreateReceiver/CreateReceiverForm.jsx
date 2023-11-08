@@ -45,6 +45,7 @@ export const CreateReceiverForm = ({ navigateToHome, fetchReceivers }) => {
     control,
     watch,
     setValue,
+    getValues,
   } = useForm({
     resolver: yupResolver(receiverCreateSchema),
     defaultValues: {
@@ -129,15 +130,19 @@ export const CreateReceiverForm = ({ navigateToHome, fetchReceivers }) => {
         </FormGroup>
         <FormGroup $customCss={formGroupSpaceBetween}>
           <FormLabel htmlFor="">Chave</FormLabel>
-          <MaskedInput
-            mask={mapMaskType[watch('pixKeyType')]}
-            alwaysShowMask={false}
-            maskChar=""
-            type={'text'}
-            placeholder={`Ex: ${mapMaskExampleType[watch('pixKeyType')]}`}
-            register={register}
-            registerId="pixKey"
-          />
+          {getValues('pixKeyType') === 'email' ? (
+            <Input placeholderText="email@email.com" {...register('pixKey')} />
+          ) : (
+            <MaskedInput
+              mask={mapMaskType[watch('pixKeyType')]}
+              alwaysShowMask={false}
+              maskChar=""
+              type={'text'}
+              placeholder={`Ex: ${mapMaskExampleType[watch('pixKeyType')]}`}
+              register={register}
+              registerId="pixKey"
+            />
+          )}
           <ErrorTip>{errors.pixKey?.message}</ErrorTip>
         </FormGroup>
         <FormActions>

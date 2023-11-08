@@ -13,10 +13,13 @@ import {
 import { DraftModal } from './domains/receivers/Modal/DraftModal/DraftModal';
 import useGetReceiver from './domains/receivers/Hooks/useGetReceiver';
 import { DeleteModal } from './domains/receivers/Modal/DeleteModal/DeleteModal';
+import { ValidatedReceiverModal } from './domains/receivers/Modal/ValidatedReceiverModal/ValidatedReceiverModal';
 
 function App() {
   const [isDraftModalVisible, setDraftModalVisibility] = useState(false);
   const [isDeleteModalVisible, setDeleteModalVisibility] = useState(false);
+  const [isValidatedModalVisible, setValidatedModalVisibility] =
+    useState(false);
   const [navigation, setNavigation] = useState('home');
 
   const { receivers, fetchReceivers } = useListReceivers();
@@ -39,6 +42,13 @@ function App() {
     setDeleteModalVisibility(false);
   };
 
+  const onOpenValidatedModal = () => {
+    setValidatedModalVisibility(true);
+  };
+  const onCloseValidatedModal = () => {
+    setValidatedModalVisibility(false);
+  };
+
   const isHomeScreen = navigation === 'home';
 
   return (
@@ -47,7 +57,8 @@ function App() {
       <Navigation isHome={isHomeScreen} onCloseClick={navigateToHome} />
       {isHomeScreen ? (
         <ReceiverList
-          onOpenModal={onOpenDraftModal}
+          onOpenDraftModal={onOpenDraftModal}
+          onOpenValidatedModal={onOpenValidatedModal}
           onNavigate={navigateToCreateForm}
           receivers={receivers}
           fetchReceiver={fetchReceiver}
@@ -74,6 +85,20 @@ function App() {
         />
       </Modal>
       <Modal
+        $customCss={draftModal}
+        isVisible={isValidatedModalVisible}
+        onCloseClick={onCloseValidatedModal}
+        title={receiver?.name}
+      >
+        <ValidatedReceiverModal
+          onCloseClick={onCloseValidatedModal}
+          onOpenDeleteModal={onOpenDeleteModal}
+          receiver={receiver}
+          fetchReceivers={fetchReceivers}
+          onCloseValidatedModal={onCloseValidatedModal}
+        />
+      </Modal>
+      <Modal
         title="Excluir favorecido"
         $customCss={deleteModal}
         $customBackgropCss={deleteModalBackdrop}
@@ -83,6 +108,7 @@ function App() {
         <DeleteModal
           onCloseDeleteModal={onCloseDeleteModal}
           onCloseDraftModal={onCloseDraftModal}
+          onCloseValidatedModal={onCloseValidatedModal}
           receiver={receiver}
           fetchReceivers={fetchReceivers}
         />

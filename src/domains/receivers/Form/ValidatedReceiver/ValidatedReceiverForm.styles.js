@@ -34,45 +34,21 @@ export const FormActions = styled.div`
   margin-top: 80px;
 `;
 
-export const TrashIcon = styled.img`
-  height: 18px;
-  width: 14px;
-`;
-
 export const ButtonGroup = styled.div`
   display: flex;
   justify-content: space-between;
   width: 250px;
 `;
 
-export const formGroupLeftSpacing = css`
-  margin-left: 33px;
+export const TrashIcon = styled.img`
+  height: 18px;
+  width: 14px;
 `;
 
 export const formGroupTopSpacing = css`
   margin-top: 37px;
 `;
 
-export const formGroupSpaceBetween = css`
-  margin-top: 22px;
-`;
-
-export const formSelectSpacing = css`
-  margin-top: 8px;
-`;
-
 export const inputSizes = css`
   width: 60%;
-`;
-
-export const bankDataInputSize = css`
-  width: 45%;
-`;
-
-export const bankDataInputSpacing = css`
-  margin-left: 5%;
-`;
-
-export const fullSpace = css`
-  width: 100%;
 `;
