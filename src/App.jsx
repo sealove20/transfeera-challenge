@@ -22,7 +22,8 @@ function App() {
     useState(false);
   const [navigation, setNavigation] = useState('home');
 
-  const { receivers, fetchReceivers } = useListReceivers();
+  const { receivers, fetchReceivers, pagination, onChangePagination } =
+    useListReceivers();
   const { receiver, fetchReceiver } = useGetReceiver();
 
   const navigateToHome = () => setNavigation('home');
@@ -62,6 +63,8 @@ function App() {
           onNavigate={navigateToCreateForm}
           receivers={receivers}
           fetchReceiver={fetchReceiver}
+          pagination={pagination}
+          onChangePagination={onChangePagination}
         />
       ) : (
         <CreateReceiver

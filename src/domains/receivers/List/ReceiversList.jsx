@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { PageHeader } from '../../../components';
 import { ReceiverListContainer } from '../styles/receivers.styles';
 import { ReceiverTable } from './ReceiverTable';
+import { Pagination } from '../../../components/Pagination/Pagination';
 
 export const ReceiverList = ({
   onOpenDraftModal,
@@ -9,6 +10,8 @@ export const ReceiverList = ({
   onNavigate,
   receivers,
   fetchReceiver,
+  pagination,
+  onChangePagination,
 }) => {
   const [search, setSearch] = useState('');
 
@@ -34,6 +37,10 @@ export const ReceiverList = ({
           fetchReceiver={fetchReceiver}
         />
       </ReceiverListContainer>
+      <Pagination
+        pagination={pagination}
+        onChangePagination={onChangePagination}
+      />
     </>
   );
 };
