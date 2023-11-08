@@ -34,7 +34,11 @@ import { ErrorTip } from '../../styles/receivers.styles';
 import { Select } from '../../../../components/Select/Select';
 import { SelectOption } from '../../../../components/Select/SelectOption/SelectOption';
 
-export const CreateReceiverForm = ({ navigateToHome, fetchReceivers }) => {
+export const CreateReceiverForm = ({
+  navigateToHome,
+  fetchReceivers,
+  pagination,
+}) => {
   const { createReceiver } = useCreateReceiver();
   const { add: addToast } = useToast();
 
@@ -56,7 +60,7 @@ export const CreateReceiverForm = ({ navigateToHome, fetchReceivers }) => {
   const onSubmit = (receiver) => {
     setValue('status', 'rascunho');
     createReceiver(receiver).then(() => {
-      fetchReceivers();
+      fetchReceivers(pagination);
       addToast('Favorecido criado com sucesso', 'success');
       window.scrollTo({ top: 0, left: 0 });
       navigateToHome();

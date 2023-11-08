@@ -15,6 +15,7 @@ export const DeleteModal = ({
   onCloseValidatedModal,
   receiver,
   fetchReceivers,
+  pagination,
 }) => {
   const { add: addToast } = useToast();
   const { deleteReceiver } = useDeleteReceiver();
@@ -23,7 +24,7 @@ export const DeleteModal = ({
     event.preventDefault();
     deleteReceiver(id);
     addToast('Favorecido excluído com sucesso', 'success');
-    fetchReceivers();
+    fetchReceivers(pagination);
     onCloseDeleteModal();
     onCloseDraftModal();
     onCloseValidatedModal();

@@ -26,6 +26,7 @@ export const ValidatedReceiverForm = ({
   receiver,
   fetchReceivers,
   onCloseValidatedModal,
+  pagination,
 }) => {
   const { editReceiver } = useEditReceiver();
   const { add: addToast } = useToast();
@@ -50,7 +51,7 @@ export const ValidatedReceiverForm = ({
     const newReceiver = { ...receiver, email: email.email };
     editReceiver(newReceiver).then(() => {
       addToast('Favorecido alterado com sucesso', 'success');
-      fetchReceivers();
+      fetchReceivers(pagination);
       onCloseValidatedModal();
     });
   };

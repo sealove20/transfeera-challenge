@@ -12,6 +12,7 @@ export const ReceiverList = ({
   fetchReceiver,
   pagination,
   onChangePagination,
+  loading,
 }) => {
   const [search, setSearch] = useState('');
 
@@ -35,6 +36,7 @@ export const ReceiverList = ({
           onOpenDraftModal={onOpenDraftModal}
           onOpenValidatedModal={onOpenValidatedModal}
           fetchReceiver={fetchReceiver}
+          loading={loading}
         />
       </ReceiverListContainer>
       <Pagination
