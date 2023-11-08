@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const CreateReceiverFormContainer = styled.div`
-  padding: 75px 10rem;
+  padding: 75px 14.625rem 0;
 `;
 
 export const Form = styled.form`
@@ -42,13 +42,13 @@ export const FormGroup = styled.div`
 export const FormActions = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 80px;
+  margin: 80px 0;
+  max-width: 647px;
 `;
 
 export const ButtonGroup = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 250px;
 `;
 
 export const TrashIcon = styled.img`

@@ -33,6 +33,8 @@ export const ReceiverModel = {
       bank_name: bank_name ? bank_name : null,
       bank_code: null,
       status,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
     };
   },
 };

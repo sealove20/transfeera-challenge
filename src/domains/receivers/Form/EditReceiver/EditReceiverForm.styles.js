@@ -61,10 +61,6 @@ export const formSelectSpacing = css`
   margin-top: 8px;
 `;
 
-export const inputSizes = css`
-  width: 60%;
-`;
-
 export const bankDataInputSize = css`
   width: 45%;
 `;
@@ -73,6 +69,6 @@ export const bankDataInputSpacing = css`
   margin-left: 5%;
 `;
 
-export const fullSpace = css`
-  width: 100%;
+export const rightBankDataInputWidth = css`
+  width: 186px;
 `;

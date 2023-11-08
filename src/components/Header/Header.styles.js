@@ -18,5 +18,5 @@ export const HeaderImage = styled.img`
 `;
 
 export const HeaderContent = styled.div`
-  padding: 10px 50px 15px;
+  padding: 15px 50px 15px;
 `;
