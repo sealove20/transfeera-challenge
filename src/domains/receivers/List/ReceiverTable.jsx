@@ -16,7 +16,11 @@ import sicoobLogo from '../../../assets/sicoob-logo.svg';
 import otherLogo from '../../../assets/bank-logo-placeholder.svg';
 import { Status } from '../../../components/Status/Status';
 import { Checkbox } from '../../../components/Checkbox/Checkbox';
-import { addDashAtTheEnd, maskCnpj, maskCpf } from '../../../common-functions';
+import {
+  addDashBeforeLast,
+  maskCnpj,
+  maskCpf,
+} from '../../../common-functions';
 
 const mapBankToLogo = {
   bradesco: bradescoLogo,
@@ -91,10 +95,10 @@ export const ReceiverTable = ({
                 />
               </TableBodyCell>
               <TableBodyCell>
-                {branch && addDashAtTheEnd(branch.toString())}
+                {branch && addDashBeforeLast(branch.toString())}
               </TableBodyCell>
               <TableBodyCell>
-                {account && addDashAtTheEnd(account.toString())}
+                {account && addDashBeforeLast(account.toString())}
               </TableBodyCell>
               <TableBodyCell>
                 <Status $customCss={capitalizedStatus} $status={status}>
