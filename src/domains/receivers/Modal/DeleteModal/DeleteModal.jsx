@@ -12,6 +12,7 @@ import {
 export const DeleteModal = ({
   onCloseDeleteModal,
   onCloseDraftModal,
+  onCloseValidatedModal,
   receiver,
   fetchReceivers,
 }) => {
@@ -25,6 +26,7 @@ export const DeleteModal = ({
     fetchReceivers();
     onCloseDeleteModal();
     onCloseDraftModal();
+    onCloseValidatedModal();
   };
 
   return (
