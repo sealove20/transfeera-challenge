@@ -46,6 +46,7 @@ export const EditReceiverForm = ({
   onOpenDeleteModal,
   receiver,
   fetchReceivers,
+  pagination,
   onCloseDraftModal,
 }) => {
   const { editReceiver } = useEditReceiver();
@@ -76,7 +77,7 @@ export const EditReceiverForm = ({
     setValue('status', 'validado');
     editReceiver(receiver).then(() => {
       addToast('Favorecido alterado com sucesso', 'success');
-      fetchReceivers();
+      fetchReceivers(pagination);
       onCloseDraftModal();
     });
   };
