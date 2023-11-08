@@ -27,6 +27,10 @@ export const ReceiverTable = ({
   fetchReceiver,
   search,
   loading,
+  onSelectTicket,
+  onSelectAll,
+  selectedReceiversId,
+  isAllSelected,
 }) => {
   const onNameClick = (id, status) => {
     status === 'rascunho' ? onOpenDraftModal() : onOpenValidatedModal();
@@ -48,7 +52,7 @@ export const ReceiverTable = ({
       <TableHeader>
         <TableHeaderRow>
           <TableHeaderCell>
-            <Checkbox />
+            <Checkbox onClick={onSelectAll} checked={isAllSelected} />
           </TableHeaderCell>
           <TableHeaderCell>Favorecido</TableHeaderCell>
           <TableHeaderCell>CPF / CNPJ</TableHeaderCell>
@@ -63,7 +67,10 @@ export const ReceiverTable = ({
           ({ id, name, taxId, bankName, branch, account, status }) => (
             <TableBodyRow key={id}>
               <TableBodyCell>
-                <Checkbox />
+                <Checkbox
+                  onClick={() => onSelectTicket(id)}
+                  checked={selectedReceiversId.includes(id)}
+                />
               </TableBodyCell>
               <TableBodyCell
                 $customCss={clickable}
