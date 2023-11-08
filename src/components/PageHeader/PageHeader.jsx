@@ -25,7 +25,7 @@ export const PageHeader = ({ onNavigate }) => {
           <PageHeaderPlusIcon src={plusIcon} />
         </CircleButton>
       </PageHeaderContainer>
-      <InputWithSuffix>
+      <InputWithSuffix placeholderText="Nome, CPF, agência ou conta">
         <PageHeaderSearchIcon src={searchLogo} />
       </InputWithSuffix>
     </SPageHeader>
