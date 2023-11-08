@@ -27,4 +27,9 @@ export const PaginationNumber = styled.p`
     props.$currentPage
       ? props.theme.typography.fontWeight.bold
       : props.theme.typography.fontWeight.regular};
+
+  font-size: ${(props) =>
+    props.$currentPage
+      ? props.theme.typography.fontSize.big
+      : props.theme.typography.fontSize.regular};
 `;
