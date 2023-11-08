@@ -7,7 +7,7 @@ export const TableRowBankIcon = styled.img`
 
 export const ReceiverListContainer = styled.div`
   padding: 0 45px;
-  margin-top: 100px;
+  margin-top: ${(props) => (props.$isBatchDeleteButtonShown ? '128px' : '0px')};
 `;
 
 export const SubTitle = styled.h2`
@@ -50,4 +50,12 @@ export const deleteModalBackdrop = css`
 
 export const modalStatus = css`
   margin-top: 35px;
+`;
+
+export const batchDeleteButton = css`
+  font-size: ${(props) => props.theme.typography.fontSize.small};
+  background-color: ${(props) => props.theme.colors.red500};
+  min-width: 175px;
+  margin: 39px 45px;
+  display: ${(props) => (props.$isShown ? 'none' : 'flex')};
 `;
