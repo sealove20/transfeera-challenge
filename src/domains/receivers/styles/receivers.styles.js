@@ -24,6 +24,11 @@ export const ErrorTip = styled.span`
   color: ${(props) => props.theme.semanticColors.dangerText};
 `;
 
+export const deleteReceiverButton = css`
+  width: 62px;
+  background: ${(props) => props.theme.colors.red600};
+`;
+
 export const clickable = css`
   cursor: pointer;
 `;
@@ -41,4 +46,8 @@ export const deleteModal = css`
 
 export const deleteModalBackdrop = css`
   z-index: 7;
+`;
+
+export const modalStatus = css`
+  margin-top: 35px;
 `;

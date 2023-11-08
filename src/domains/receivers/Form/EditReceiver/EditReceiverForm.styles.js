@@ -45,11 +45,6 @@ export const ButtonGroup = styled.div`
   width: 250px;
 `;
 
-export const deleteReceiverButton = css`
-  width: 62px;
-  background: ${(props) => props.theme.colors.red600};
-`;
-
 export const formGroupLeftSpacing = css`
   margin-left: 33px;
 `;
