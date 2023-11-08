@@ -57,7 +57,11 @@ export const receiverCreateSchema = yup
       })
       .when('pixKeyType', {
         is: 'email',
-        then: () => yup.string().email('Email inválido'),
+        then: () =>
+          yup
+            .string()
+            .email('Email inválido')
+            .required('O campo chave é obrigatório'),
       }),
   })
   .required();
@@ -70,3 +74,10 @@ export const receiverEditSchema = receiverCreateSchema
     account: yup.string().required('O campo número da conta é obrigatório'),
   })
   .required();
+
+export const receiverValidatedSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Email inválido')
+    .required('O campo email é obrigatório'),
+});
