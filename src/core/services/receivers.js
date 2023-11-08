@@ -2,9 +2,17 @@ import { ReceiverModel } from '../models/receivers';
 import { ReceiverParser } from '../parsers/receivers';
 
 const receiversService = {
-  list() {
+  list(pagination) {
+    const { currentPage, perPage } = pagination;
+    return fetch(
+      `${
+        import.meta.env.VITE_TRANSFEERA_API_URL
+      }/receivers?_page=${currentPage}&_limit=${perPage}`,
+    ).then((res) => res.json().then(ReceiverParser.list));
+  },
+  getTotalNumberOfReceivers() {
     return fetch(`${import.meta.env.VITE_TRANSFEERA_API_URL}/receivers`).then(
-      (res) => res.json().then(ReceiverParser.list),
+      (res) => res.json().then((res) => res.length),
     );
   },
   getById(receiverId) {
