@@ -25,11 +25,23 @@ export const ReceiverTable = ({
   onOpenDraftModal,
   onOpenValidatedModal,
   fetchReceiver,
+  search,
 }) => {
   const onNameClick = (id, status) => {
     status === 'rascunho' ? onOpenDraftModal() : onOpenValidatedModal();
     fetchReceiver(id);
   };
+  const getFilteredReceivers = () => {
+    return receivers.filter((receiver) => {
+      return (
+        receiver?.name?.toLowerCase().includes(search.toLowerCase()) ||
+        receiver?.taxId?.toLowerCase().includes(search.toLowerCase()) ||
+        receiver?.branch?.toLowerCase().includes(search.toLowerCase()) ||
+        receiver?.account?.toLowerCase().includes(search.toLowerCase())
+      );
+    });
+  };
+
   return (
     <TableContainer>
       <TableHeader>
@@ -46,7 +58,7 @@ export const ReceiverTable = ({
         </TableHeaderRow>
       </TableHeader>
       <TableBody>
-        {receivers?.map(
+        {getFilteredReceivers()?.map(
           ({ id, name, taxId, bankName, branch, account, status }) => (
             <TableBodyRow key={id}>
               <TableBodyCell>
