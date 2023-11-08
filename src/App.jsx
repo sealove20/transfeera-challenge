@@ -66,17 +66,20 @@ function App() {
       <Header />
       <Navigation isHome={isHomeScreen} onCloseClick={navigateToHome} />
       {isHomeScreen ? (
-        <ReceiverList
-          onOpenDraftModal={onOpenDraftModal}
-          onOpenValidatedModal={onOpenValidatedModal}
-          onNavigate={navigateToCreateForm}
-          receivers={receivers}
-          fetchReceiver={fetchReceiver}
-          pagination={pagination}
-          onChangePagination={onChangePagination}
-          loading={receiversListLoading}
-          fetchReceivers={fetchReceivers}
-        />
+        <>
+          <ReceiverList
+            onOpenDraftModal={onOpenDraftModal}
+            onOpenValidatedModal={onOpenValidatedModal}
+            onNavigate={navigateToCreateForm}
+            receivers={receivers}
+            fetchReceiver={fetchReceiver}
+            pagination={pagination}
+            onChangePagination={onChangePagination}
+            loading={receiversListLoading}
+            fetchReceivers={fetchReceivers}
+          />
+          <Footer />
+        </>
       ) : (
         <CreateReceiver
           navigateToHome={navigateToHome}
@@ -84,7 +87,6 @@ function App() {
           pagination={pagination}
         />
       )}
-      <Footer />
       <Modal
         $customCss={draftModal}
         isVisible={isDraftModalVisible}
