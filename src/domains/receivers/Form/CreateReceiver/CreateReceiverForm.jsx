@@ -30,7 +30,7 @@ import {
 } from '../../../../constants/masks';
 import { receiverCreateSchema } from '../receiver.schema';
 import { useToast } from '../../../../components/ToastNotification/ToastNotification';
-import { ErrorTip } from '../../styles/receivers.styles';
+import { ErrorTip, inputWidth } from '../../styles/receivers.styles';
 import { Select } from '../../../../components/Select/Select';
 import { SelectOption } from '../../../../components/Select/SelectOption/SelectOption';
 
@@ -113,7 +113,7 @@ export const CreateReceiverForm = ({
             <ErrorTip>{errors.taxId?.message}</ErrorTip>
           </FormGroup>
         </GroupContainer>
-        <FormGroup $customCss={formGroupTopSpacing}>
+        <FormGroup $customCss={[formGroupTopSpacing, inputWidth]}>
           <FormLabel htmlFor="">
             Qual o e-mail para o envio do comprovante?
           </FormLabel>
@@ -123,7 +123,10 @@ export const CreateReceiverForm = ({
         <HeaderSubTitle>Qual a chave pix?</HeaderSubTitle>
         <FormGroup $customCss={formGroupTopSpacing}>
           <FormLabel htmlFor="">Tipo de chave</FormLabel>
-          <Select {...register('pixKeyType')} $customCss={formSelectSpacing}>
+          <Select
+            {...register('pixKeyType')}
+            $customCss={[formSelectSpacing, inputWidth]}
+          >
             <SelectOption value="cpf">CPF</SelectOption>
             <SelectOption value="cnpj">CNPJ</SelectOption>
             <SelectOption value="celular">Celular</SelectOption>
@@ -135,7 +138,11 @@ export const CreateReceiverForm = ({
         <FormGroup $customCss={formGroupSpaceBetween}>
           <FormLabel htmlFor="">Chave</FormLabel>
           {getValues('pixKeyType') === 'email' ? (
-            <Input placeholderText="email@email.com" {...register('pixKey')} />
+            <Input
+              placeholderText="email@email.com"
+              {...register('pixKey')}
+              $customCss={inputWidth}
+            />
           ) : (
             <MaskedInput
               mask={mapMaskType[watch('pixKeyType')]}
@@ -145,6 +152,7 @@ export const CreateReceiverForm = ({
               placeholder={`Ex: ${mapMaskExampleType[watch('pixKeyType')]}`}
               register={register}
               registerId="pixKey"
+              $customCss={inputWidth}
             />
           )}
           <ErrorTip>{errors.pixKey?.message}</ErrorTip>

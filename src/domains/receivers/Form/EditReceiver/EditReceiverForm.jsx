@@ -14,10 +14,9 @@ import {
   formGroupSpaceBetween,
   formGroupTopSpacing,
   formSelectSpacing,
-  inputSizes,
   bankDataInputSpacing,
   bankDataInputSize,
-  fullSpace,
+  rightBankDataInputWidth,
 } from './EditReceiverForm.styles';
 
 import trashIcon from '../../../../assets/trash-icon.svg';
@@ -27,6 +26,7 @@ import {
   ErrorTip,
   SubTitle,
   deleteReceiverButton,
+  inputWidth,
 } from '../../styles/receivers.styles';
 import { receiverEditSchema } from '../receiver.schema';
 import {
@@ -129,6 +129,7 @@ export const EditReceiverForm = ({
                   placeholder={`Ex: ${cpfMaskExample}`}
                   register={register}
                   registerId="taxId"
+                  $customCss={rightBankDataInputWidth}
                 />
               </>
             )}
@@ -141,7 +142,7 @@ export const EditReceiverForm = ({
           Qual o e-mail para o envio do comprovante?
         </FormLabel>
         <Input
-          $customCss={inputSizes}
+          $customCss={inputWidth}
           placeholderText="Digite o email"
           {...register('email')}
         />
@@ -161,7 +162,7 @@ export const EditReceiverForm = ({
             <Select
               value={value}
               {...register('pixKeyType')}
-              $customCss={[formSelectSpacing, inputSizes]}
+              $customCss={[formSelectSpacing, inputWidth]}
             >
               <SelectOption value="cpf">CPF</SelectOption>
               <SelectOption value="cnpj">CNPJ</SelectOption>
@@ -176,7 +177,11 @@ export const EditReceiverForm = ({
       <FormGroup $customCss={formGroupSpaceBetween}>
         <FormLabel htmlFor="">Chave</FormLabel>
         {getValues('pixKeyType') === 'email' ? (
-          <Input placeholderText="email@email.com" {...register('pixKey')} />
+          <Input
+            placeholderText="email@email.com"
+            {...register('pixKey')}
+            $customCss={inputWidth}
+          />
         ) : (
           <MaskedInput
             mask={mapMaskType[watch('pixKeyType')]}
@@ -186,16 +191,18 @@ export const EditReceiverForm = ({
             placeholder={`Ex: ${mapMaskExampleType[watch('pixKeyType')]}`}
             register={register}
             registerId="pixKey"
+            $customCss={inputWidth}
           />
         )}
         <ErrorTip>{errors.pixKey?.message}</ErrorTip>
       </FormGroup>
       <GroupContainer>
-        <FormGroup $customCss={[formGroupTopSpacing, bankDataInputSize]}>
+        <FormGroup $customCss={[formGroupTopSpacing]}>
           <FormLabel htmlFor="">Qual o nome do banco?</FormLabel>
           <Input
             placeholderText="Digite o nome do banco"
             {...register('bankName')}
+            $customCss={inputWidth}
           />
           <ErrorTip>{errors.bankName?.message}</ErrorTip>
         </FormGroup>
@@ -210,17 +217,18 @@ export const EditReceiverForm = ({
           <Input
             placeholderText="Digite o número da agência"
             {...register('branch')}
+            $customCss={rightBankDataInputWidth}
           />
           <ErrorTip>{errors.branch?.message}</ErrorTip>
         </FormGroup>
       </GroupContainer>
       <GroupContainer>
-        <FormGroup $customCss={[formGroupTopSpacing, bankDataInputSize]}>
+        <FormGroup $customCss={[formGroupTopSpacing]}>
           <FormLabel htmlFor="">Qual o tipo de conta?</FormLabel>
 
           <Select
             {...register('accountType')}
-            $customCss={[formSelectSpacing, fullSpace]}
+            $customCss={[formSelectSpacing, inputWidth]}
           >
             <SelectOption value="corrente">Conta corrente</SelectOption>
             <SelectOption value="poupanca">Conta poupança</SelectOption>
@@ -239,6 +247,7 @@ export const EditReceiverForm = ({
           <Input
             placeholderText="Digite o número da conta"
             {...register('account')}
+            $customCss={rightBankDataInputWidth}
           />
           <ErrorTip>{errors.account?.message}</ErrorTip>
         </FormGroup>
