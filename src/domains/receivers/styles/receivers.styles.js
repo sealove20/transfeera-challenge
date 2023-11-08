@@ -35,11 +35,12 @@ export const clickable = css`
 
 export const draftModal = css`
   max-height: 90%;
+  width: 731px;
   overflow: auto;
 `;
 
 export const deleteModal = css`
-  min-width: 635px;
+  max-width: 635px;
   min-height: 355px;
   z-index: 8;
 `;
@@ -58,4 +59,12 @@ export const batchDeleteButton = css`
   min-width: 175px;
   margin: 39px 45px;
   display: ${(props) => (props.$isShown ? 'none' : 'flex')};
+`;
+
+export const inputWidth = css`
+  width: 327px;
+`;
+
+export const capitalizedStatus = css`
+  text-transform: capitalize;
 `;

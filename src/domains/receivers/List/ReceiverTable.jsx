@@ -5,7 +5,11 @@ import { TableContainer } from '../../../components/Table/TableContainer/TableCo
 import { TableHeader } from '../../../components/Table/TableHeader/TableHeader';
 import { TableHeaderCell } from '../../../components/Table/TableHeaderCell/TableHeaderCell';
 import { TableHeaderRow } from '../../../components/Table/TableHeaderRow/TableHeaderRow';
-import { TableRowBankIcon, clickable } from '../styles/receivers.styles';
+import {
+  TableRowBankIcon,
+  capitalizedStatus,
+  clickable,
+} from '../styles/receivers.styles';
 import bradescoLogo from '../../../assets/bradesco-logo.svg';
 import caixaLogo from '../../../assets/caixa-logo.svg';
 import sicoobLogo from '../../../assets/sicoob-logo.svg';
@@ -93,7 +97,9 @@ export const ReceiverTable = ({
                 {account && addDashAtTheEnd(account.toString())}
               </TableBodyCell>
               <TableBodyCell>
-                <Status $status={status}>{status}</Status>
+                <Status $customCss={capitalizedStatus} $status={status}>
+                  {status}
+                </Status>
               </TableBodyCell>
             </TableBodyRow>
           ),
