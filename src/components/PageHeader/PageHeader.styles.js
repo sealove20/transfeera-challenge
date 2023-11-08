@@ -38,3 +38,7 @@ export const pageHeaderCTAButton = css`
   justify-content: center;
   margin-left: 8px;
 `;
+
+export const searchFontStyle = css`
+  font-weight: ${(props) => props.theme.typography.fontWeight.light};
+`;
