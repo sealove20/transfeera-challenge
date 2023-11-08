@@ -19,10 +19,10 @@ export const Input = forwardRef(
   },
 );
 
-export const InputWithSuffix = ({ children }) => {
+export const InputWithSuffix = ({ children, placeholderText }) => {
   return (
     <InputWithSuffixContainer>
-      <Input />
+      <Input placeholderText={placeholderText} />
       <Suffix>{children}</Suffix>
     </InputWithSuffixContainer>
   );
