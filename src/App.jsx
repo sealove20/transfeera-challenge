@@ -75,6 +75,7 @@ function App() {
           pagination={pagination}
           onChangePagination={onChangePagination}
           loading={receiversListLoading}
+          fetchReceivers={fetchReceivers}
         />
       ) : (
         <CreateReceiver
