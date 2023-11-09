@@ -1,4 +1,4 @@
-# TC code challenge
+# Transfeera code challenge
 
 ## :gear: Tecnologias
 
