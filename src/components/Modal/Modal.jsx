@@ -28,8 +28,12 @@ export const Modal = ({
         onClick={onCloseClick}
         $customBackgropCss={$customBackgropCss}
       />
-      <SModal $customCss={$customCss}>
-        <CloseIcon src={closeIcon} onClick={onCloseClick} />
+      <SModal data-testid="modal" $customCss={$customCss}>
+        <CloseIcon
+          data-testid="close-modal"
+          src={closeIcon}
+          onClick={onCloseClick}
+        />
         <Header>
           <HeaderTitle>{title}</HeaderTitle>
         </Header>
