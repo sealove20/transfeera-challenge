@@ -59,6 +59,9 @@ cd transfeera-challenge
 # Instale as dependências
 npm install
 
+# Crie o arquivo .env
+cp .env.example .env
+
 # Inicie o servidor Json-server
 json-server --watch ./src/data/db.json
 
