@@ -41,8 +41,13 @@ export const ReceiverTable = ({
   isAllSelected,
 }) => {
   const onNameClick = (id, status) => {
-    status === 'rascunho' ? onOpenDraftModal() : onOpenValidatedModal();
-    fetchReceiver(id);
+    fetchReceiver(id)
+      .then(() => {
+        status === 'rascunho' ? onOpenDraftModal() : onOpenValidatedModal();
+      })
+      .catch(() => {
+        addToast('Erro ao buscar um favorecido');
+      });
   };
   const getFilteredReceivers = () => {
     return receivers.filter((receiver) => {

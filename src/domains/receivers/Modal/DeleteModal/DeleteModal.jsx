@@ -22,12 +22,17 @@ export const DeleteModal = ({
 
   const onDelete = (id, event) => {
     event.preventDefault();
-    deleteReceiver(id);
-    addToast('Favorecido excluído com sucesso', 'success');
-    fetchReceivers(pagination);
-    onCloseDeleteModal();
-    onCloseDraftModal();
-    onCloseValidatedModal();
+    deleteReceiver(id)
+      .then(() => {
+        addToast('Favorecido excluído com sucesso', 'success');
+        fetchReceivers(pagination);
+        onCloseDeleteModal();
+        onCloseDraftModal();
+        onCloseValidatedModal();
+      })
+      .catch(() => {
+        addToast('Erro ao deletar um favorecido');
+      });
   };
 
   return (
