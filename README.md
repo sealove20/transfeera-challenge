@@ -18,6 +18,10 @@ Todos os módulos foram separados pensando em manter o princípio de responsabil
 
 Todas as variáveis de estilos foi desenvolvida para servir de base para um primeiro estágio de um *design system*(biblioteca de componentes) utilizando a tecnica de [Design Tokens[design-tokens] para que as variáveis de estilos se torne semânticas e possam ser compartilhadas entre os times de design e desenvolvimento.
 
+Mantive todo o *tracking* de tarefas através da aba de [projetos][project] e [issues][issues]. Cada mudança no projeto foi feita em uma nova *branch* e posteriormente mesclada a *branch* principal através de [pull requests][pull-request] com informações sobre as novas mudanças e como testar.
+
+Todos os commits foram feitos utilizando [commits semânticos][conventional-commits].
+
 ## Módulos
 Alguns módulos com destaque.
 ### Core
@@ -86,3 +90,7 @@ npm run test
 [nvm]: https://github.com/nvm-sh/nvm
 [json-server]: https://github.com/typicode/json-server
 [design-tokens]: https://spectrum.adobe.com/page/design-tokens/
+[project]: https://github.com/users/sealove20/projects/3/views/1
+[issues]: https://github.com/sealove20/transfeera-challenge/issues?q=is%3Aissue+is%3Aclosed
+[pull-request]: https://github.com/sealove20/transfeera-challenge/pulls?q=is%3Apr+is%3Aclosed
+[conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/
