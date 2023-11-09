@@ -75,11 +75,15 @@ export const EditReceiverForm = ({
 
   const onSubmit = (receiver) => {
     setValue('status', 'validado');
-    editReceiver(receiver).then(() => {
-      addToast('Favorecido alterado com sucesso', 'success');
-      fetchReceivers(pagination);
-      onCloseDraftModal();
-    });
+    editReceiver(receiver)
+      .then(() => {
+        addToast('Favorecido alterado com sucesso', 'success');
+        fetchReceivers(pagination);
+        onCloseDraftModal();
+      })
+      .catch(() => {
+        addToast('Erro ao editar um favorecido');
+      });
   };
 
   useEffect(() => {

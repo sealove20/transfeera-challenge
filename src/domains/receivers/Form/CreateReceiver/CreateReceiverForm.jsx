@@ -59,12 +59,16 @@ export const CreateReceiverForm = ({
 
   const onSubmit = (receiver) => {
     setValue('status', 'rascunho');
-    createReceiver(receiver).then(() => {
-      fetchReceivers(pagination);
-      addToast('Favorecido criado com sucesso', 'success');
-      window.scrollTo({ top: 0, left: 0 });
-      navigateToHome();
-    });
+    createReceiver(receiver)
+      .then(() => {
+        fetchReceivers(pagination);
+        addToast('Favorecido criado com sucesso', 'success');
+        window.scrollTo({ top: 0, left: 0 });
+        navigateToHome();
+      })
+      .catch(() => {
+        addToast('Erro ao criar um favorecido');
+      });
   };
 
   useEffect(() => {

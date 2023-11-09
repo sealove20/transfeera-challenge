@@ -49,11 +49,15 @@ export const ValidatedReceiverForm = ({
 
   const onSubmit = (email) => {
     const newReceiver = { ...receiver, email: email.email };
-    editReceiver(newReceiver).then(() => {
-      addToast('Favorecido alterado com sucesso', 'success');
-      fetchReceivers(pagination);
-      onCloseValidatedModal();
-    });
+    editReceiver(newReceiver)
+      .then(() => {
+        addToast('Favorecido alterado com sucesso', 'success');
+        fetchReceivers(pagination);
+        onCloseValidatedModal();
+      })
+      .catch(() => {
+        addToast('Erro ao editar um favorecido');
+      });
   };
 
   const checkEmptyReceiver = (receiver) => receiver.length !== 0;
