@@ -1,5 +1,5 @@
 import {
-  addDashAtTheEnd,
+  addDashBeforeLast,
   maskCnpj,
   maskCpf,
 } from '../../../../common-functions';
@@ -27,8 +27,8 @@ export const ValidatedReceiverModal = ({
   const { status, taxId, bankName, branch, account, accountType } = receiver;
 
   const maskedTaxId = taxId?.length <= 11 ? maskCpf(taxId) : maskCnpj(taxId);
-  const maskedBranch = addDashAtTheEnd(branch);
-  const maskedAccount = addDashAtTheEnd(account);
+  const maskedBranch = addDashBeforeLast(branch);
+  const maskedAccount = addDashBeforeLast(account);
   const formatedAccountType =
     accountType === 'corrente' ? 'Conta Corrente' : 'Conta Poupança';
 

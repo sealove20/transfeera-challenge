@@ -14,6 +14,7 @@ export const Input = forwardRef(
         $customCss={$customCss}
         ref={ref}
         {...props}
+        data-testid="input"
       />
     );
   },
@@ -46,6 +47,7 @@ export const MaskedInput = forwardRef(
         {...props}
         {...register(registerId)}
         $customCss={$customCss}
+        data-testid="masked-input"
       />
     );
   },
