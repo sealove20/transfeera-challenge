@@ -16,7 +16,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 A Arquitetura foi pensada para ser [feature based][feature-based] mantendo todo o contexto de uma determinada feature próximos, garantindo um melhor encapsulamento do módulos e um melhor *code discoverability*.
 Todos os módulos foram separados pensando em manter o princípio de responsabilidade única, trazendo uma facilidade para executar testes e a compreenssão de sua função.
 
-Todas as variáveis de estilos foi desenvolvida para servir de base para um primeiro estágio de um *design system*(biblioteca de componentes) utilizando a tecnica de [Design Tokens][design-tokens] para que as variáveis de estilos se torne semânticas e possam ser compartilhadas entre os times de design e desenvolvimento.
+Todas as variáveis de estilos foi desenvolvida para servir de base para um primeiro estágio de um *design system*(biblioteca de componentes) utilizando a tecnica de [design Tokens][design-tokens] para que as variáveis de estilos se tornem semânticas e possam ser compartilhadas entre os times de design e desenvolvimento.
 
 Mantive todo o *tracking* de tarefas através da aba de [projetos][project] e [issues][issues]. Cada mudança no projeto foi feita em uma nova *branch* e posteriormente mesclada a *branch* principal através de [pull requests][pull-request] com informações sobre as novas mudanças e como testar.
 
